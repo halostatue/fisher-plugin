@@ -66,7 +66,8 @@ init: has-init-variables
 		-e 's!halostatue/fisher-plugin!'$$NAME'!g' \
 		-e 's!OWNER/REPONAME!'$$NAME'!g' \
 		-e 's!Austin Ziegler!'$$AUTHOR'!g' \
-		-e '/^> |^>$$/d' \
+		-e '/^> /d' \
+		-e '/^>$$/d' \
 		-e 's/2022-06-22/'(date +%Y-%m-%d)'/g' \
 		-e 's/2022/'(date +%Y)'/g' \
 		*.md
