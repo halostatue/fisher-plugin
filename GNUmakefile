@@ -64,6 +64,7 @@ install-fishtape:
 init: has-init-variables
 	@sed -i '' \
 		-e 's!halostatue/fisher-plugin!'$$NAME'!g' \
+		-e 's!OWNER/REPONAME!'$$NAME'!g' \
 		-e 's!Austin Ziegler!'$$AUTHOR'!g' \
 		-e '/^> |^>$$/d' \
 		-e 's/2022-06-22/'(date +%Y-%m-%d)'/' \
