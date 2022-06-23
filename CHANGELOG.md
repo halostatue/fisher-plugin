@@ -9,6 +9,6 @@
 > - v1.0.x (minor semver lock; moves on patch releaes)
 > - v1.x (major semver lock; moves on minor releaes)
 
-## 1.0
+## 1.0 / 2022-06-22
 
-- Create halostatue/fish-utils
+- Created halostatue/fisher-plugin

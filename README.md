@@ -1,5 +1,9 @@
 # halostatue/fisher-plugin
 
+> Run `make init AUTHOR=name NAME=owner/repo` to make this your own. It will
+> make changes that prepare your plug-in repository. This does _not_ commit
+> the changes or make all changes for you.
+>
 > This repository is a template for creating [fisher][]-compatible plugins for
 > the Fish shell.
 >
