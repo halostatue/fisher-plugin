@@ -74,6 +74,7 @@ init: has-init-variables
 	@sed -i '' -e 's/ponyo_/'(string replace -r '[^[:alpha:]]' _ $$NAME)'_/' conf.d/ponyo.fish
 	@git mv conf.d/ponyo.fish conf.d/(string replace -r '[^[:alpha:]]' _ $$NAME).fish
 	@git rm -f */.keep
+	@mkdir -p functions conf.d completions tests
 	@sed -i '' -e '/^## START init$$/,/## END init$$/d' GNUmakefile
 
 has-init-variables:
