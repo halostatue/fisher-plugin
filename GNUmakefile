@@ -71,8 +71,8 @@ init: has-init-variables
 		-e 's/2022/'(date +%Y)'/' \
 		*.md
 	@printf '# Contributors\n\n- %s\n' $$AUTHOR > CONTRIBUTORS.md
-	@sed -i '' -e 's/ponyo_/'(string replace -r '[^[:alpha:]]' _ $$NAME)'_/' conf.d/ponyo.fish
-	@git mv conf.d/ponyo.fish conf.d/(string replace -r '[^[:alpha:]]' _ $$NAME).fish
+	@sed -i '' -e 's/ponyo_/'(string replace -a -r '[^[:alpha:]]' _ $$NAME)'_/' conf.d/ponyo.fish
+	@git mv conf.d/ponyo.fish conf.d/(string replace -a -r '[^[:alpha:]]' _ $$NAME).fish
 	@git rm -f */.keep
 	@mkdir -p functions conf.d completions tests
 	@sed -i '' -e '/^## START init$$/,/## END init$$/d' GNUmakefile
