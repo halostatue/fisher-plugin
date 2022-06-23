@@ -67,12 +67,16 @@ init: has-init-variables
 		-e 's!OWNER/REPONAME!'$$NAME'!g' \
 		-e 's!Austin Ziegler!'$$AUTHOR'!g' \
 		-e '/^> |^>$$/d' \
-		-e 's/2022-06-22/'(date +%Y-%m-%d)'/' \
-		-e 's/2022/'(date +%Y)'/' \
+		-e 's/2022-06-22/'(date +%Y-%m-%d)'/g' \
+		-e 's/2022/'(date +%Y)'/g' \
 		*.md
 	@printf '# Contributors\n\n- %s\n' $$AUTHOR > CONTRIBUTORS.md
-	@sed -i '' -e 's/ponyo_/'(string replace -a -r '[^[:alpha:]]' _ $$NAME)'_/' conf.d/ponyo.fish
-	@git mv conf.d/ponyo.fish conf.d/(string replace -a -r '[^[:alpha:]]' _ $$NAME).fish
+	@sed -i '' \
+		-e 's/ponyo_/'(string replace -a -r '[^[:alpha:]]' _ $$NAME)'_/g' \
+		conf.d/ponyo.fish
+	@git mv \
+		conf.d/ponyo.fish \
+		conf.d/(string replace -a -r '[^[:alpha:]]' _ $$NAME).fish
 	@git rm -f */.keep
 	@mkdir -p functions conf.d completions tests
 	@sed -i '' -e '/^## START init$$/,/## END init$$/d' GNUmakefile
